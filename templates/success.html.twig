@@ -1,0 +1,7 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1 class="text-center">{{ messageType }} Request Sent</h1>
+
+    <a href="{{ path('view_calls') }}">View Call Logs</a>
+{%  endblock %}

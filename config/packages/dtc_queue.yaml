@@ -1,0 +1,6 @@
+dtc_queue:
+  manager:
+    job: redis
+  redis:
+    predis:
+      dsn: '%env(REDIS_CONNECTION_DNS)%'

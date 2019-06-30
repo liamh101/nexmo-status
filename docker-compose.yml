@@ -1,0 +1,33 @@
+version: "3"
+services:
+  php:
+    build:
+      context: ./
+      dockerfile: docker/php/Dockerfile
+    volumes:
+    - ./:/var/www/symfony:cached
+    - ./docker/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+  mysql:
+    image: mysql:5.7
+    ports:
+    - '8306:3306'
+    restart: always
+    container_name: mysql
+    environment:
+      MYSQL_DATABASE: symfony-db
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: symfony
+      MYSQL_PASSWORD: password
+  nginx:
+    image: nginx:latest
+    ports:
+    - '8080:80'
+    volumes:
+    - ./:/var/www/symfony:cached
+    - ./docker/nginx/site.conf:/etc/nginx/conf.d/default.conf
+    restart: always
+  redis:
+    image: redis:latest
+    restart: on-failure
+    ports:
+    - '6379:6379'
