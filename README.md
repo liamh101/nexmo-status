@@ -37,3 +37,5 @@ Note: in development I recommend using [ngrok](https://ngrok.com/) when listenin
 Web address: `localhost:8080`
 
 To run the queue system after a call run: `bin/console dtc:queue:run`
+
+This repo was used to create an article for Nexmo: https://www.nexmo.com/blog/2019/11/14/creating-a-phone-status-checker-with-nexmo-and-php-dr
